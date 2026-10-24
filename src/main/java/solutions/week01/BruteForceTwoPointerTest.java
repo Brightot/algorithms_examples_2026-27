@@ -14,5 +14,20 @@ public class BruteForceTwoPointerTest {
         System.out.println(BruteForceTwoPointer.arraysEqualBruteForce(first, second));
         System.out.println(BruteForceTwoPointer.arraysEqualBruteForce(first, third));
         System.out.println(BruteForceTwoPointer.arraysEqualBruteForce(first, fourth));
+        System.out.println(BruteForceTwoPointer.arraysEqualTwoPointer(first, second));
+        System.out.println(BruteForceTwoPointer.arraysEqualTwoPointer(first, third));
+        System.out.println(BruteForceTwoPointer.arraysEqualTwoPointer(first, fourth));
+
+        int[] empty1 = {};
+        int[] empty2 = {};
+        int[] duplicates1 = {2, 2, 5};
+        int[] duplicates2 = {5, 2, 2};
+
+        System.out.println(BruteForceTwoPointer.arraysEqualBruteForce(empty1, empty2));
+        System.out.println(BruteForceTwoPointer.arraysEqualTwoPointer(empty1, empty2));
+
+        System.out.println(BruteForceTwoPointer.arraysEqualBruteForce(duplicates1, duplicates2));
+        System.out.println(BruteForceTwoPointer.arraysEqualTwoPointer(duplicates1, duplicates2));
     }
+
 }

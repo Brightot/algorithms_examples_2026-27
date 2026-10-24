@@ -63,6 +63,17 @@ public class BruteForceTwoPointerTest {
         int[] result6 = BruteForceTwoPointer.shortestSubarrayTwoPointer(new int[]{5}, 5);
         System.out.println(java.util.Arrays.toString(result6));
 
+        System.out.println(BruteForceTwoPointer.reverseVowelsBruteForce("hello"));
+        System.out.println(BruteForceTwoPointer.reverseVowelsBruteForce("beautiful"));
+        System.out.println(BruteForceTwoPointer.reverseVowelsBruteForce("rhythm"));
+        System.out.println(BruteForceTwoPointer.reverseVowelsBruteForce("AEIOU"));
+
+
+        System.out.println(BruteForceTwoPointer.reverseVowelsTwoPointer("hello"));
+        System.out.println(BruteForceTwoPointer.reverseVowelsTwoPointer("beautiful"));
+        System.out.println(BruteForceTwoPointer.reverseVowelsTwoPointer("rhythm"));
+        System.out.println(BruteForceTwoPointer.reverseVowelsTwoPointer("AEIOU"));
+
     }
 
 }

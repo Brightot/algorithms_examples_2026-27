@@ -284,4 +284,99 @@ public class BruteForceTwoPointer {
         return new int[]{bestStart, bestEnd};
     }
 
+    /**
+     * Reverses the vowels in a string using a brute-force approach.
+     *
+     * Simplifications:
+     * - The input string is assumed to be non-null.
+     * - Vowels are a, e, i, o and u, ignoring case.
+     *
+     * Time complexity: O(n).
+     * Auxiliary space complexity: O(n).
+     *
+     * Contraindications:
+     * - Creates an additional character array and a vowel array.
+     *
+     * @param text the original string
+     * @return a string with its vowels reversed
+     */
+    public static String reverseVowelsBruteForce(String text) {
+        char[] characters = text.toCharArray();
+        char[] vowels = new char[characters.length];
+        int count = 0;
+
+        for (int i = 0; i < characters.length; i++) {
+            char ch = Character.toLowerCase(characters[i]);
+
+            if (ch == 'a' || ch == 'e' || ch == 'i'
+                    || ch == 'o' || ch == 'u') {
+                vowels[count] = characters[i];
+                count++;
+            }
+        }
+
+        for (int i = 0; i < characters.length; i++) {
+            char ch = Character.toLowerCase(characters[i]);
+
+            if (ch == 'a' || ch == 'e' || ch == 'i'
+                    || ch == 'o' || ch == 'u') {
+                count--;
+                characters[i] = vowels[count];
+            }
+        }
+
+        return new String(characters);
+    }
+
+    /**
+     * Reverses the vowels in a string using two pointers.
+     *
+     * Simplifications:
+     * - The input string is assumed to be non-null.
+     * - Vowels are a, e, i, o and u, ignoring case.
+     *
+     * Time complexity: O(n).
+     * Auxiliary space complexity: O(n) for the character array.
+     *
+     * Contraindications:
+     * - Creates a character array because Java strings are immutable.
+     *
+     * @param text the original string
+     * @return a string with its vowels reversed
+     */
+    public static String reverseVowelsTwoPointer(String text) {
+        char[] characters = text.toCharArray();
+        int left = 0;
+        int right = characters.length - 1;
+
+        while (left < right) {
+            while (left < right && !isVowel(characters[left])) {
+                left++;
+            }
+
+            while (left < right && !isVowel(characters[right])) {
+                right--;
+            }
+
+            if (left < right) {
+                char temp = characters[left];
+                characters[left] = characters[right];
+                characters[right] = temp;
+
+                left++;
+                right--;
+            }
+        }
+
+        return new String(characters);
+    }
+
+    private static boolean isVowel(char ch) {
+        ch = Character.toLowerCase(ch);
+
+        return ch == 'a' || ch == 'e' || ch == 'i'
+                || ch == 'o' || ch == 'u';
+    }
+
+
 }

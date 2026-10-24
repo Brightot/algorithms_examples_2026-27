@@ -41,6 +41,28 @@ public class BruteForceTwoPointerTest {
         System.out.println(BruteForceTwoPointer.isPalindromeTwoPointer("A man, a plan, a canal: Panama!"));
         System.out.println(BruteForceTwoPointer.isPalindromeTwoPointer("hello"));
 
+
+        int[] numbers = {2, 3, 1, 2, 4, 3};
+
+        int[] result1 = BruteForceTwoPointer.shortestSubarrayBruteForce(numbers, 7);
+        System.out.println(java.util.Arrays.toString(result1));
+
+        int[] result2 = BruteForceTwoPointer.shortestSubarrayBruteForce(numbers, 20);
+        System.out.println(java.util.Arrays.toString(result2));
+
+        int[] result3 = BruteForceTwoPointer.shortestSubarrayBruteForce(new int[]{5}, 5);
+        System.out.println(java.util.Arrays.toString(result3));
+
+
+        int[] result4 = BruteForceTwoPointer.shortestSubarrayTwoPointer(numbers, 7);
+        System.out.println(java.util.Arrays.toString(result4));
+
+        int[] result5 = BruteForceTwoPointer.shortestSubarrayTwoPointer(numbers, 20);
+        System.out.println(java.util.Arrays.toString(result5));
+
+        int[] result6 = BruteForceTwoPointer.shortestSubarrayTwoPointer(new int[]{5}, 5);
+        System.out.println(java.util.Arrays.toString(result6));
+
     }
 
 }

@@ -179,4 +179,109 @@ public class BruteForceTwoPointer {
         return true;
     }
 
+    /**
+     * Finds the shortest contiguous subarray with a sum greater than
+     * or equal to the target using brute force.
+     *
+     * Simplifications:
+     * - The array contains positive integers.
+     * - The array is assumed to be non-null.
+     * - Start and end positions are zero-based indices.
+     *
+     * Time complexity: O(n^2) in the worst case.
+     * Auxiliary space complexity: O(1).
+     *
+     * Contraindications:
+     * - This approach can be slow for large arrays because it checks
+     *   many possible subarrays.
+     *
+     * @param numbers the array of positive integers
+     * @param target the required minimum sum
+     * @return an array containing the start and end indices, or {0}
+     *         if no valid subarray exists
+     */
+    public static int[] shortestSubarrayBruteForce(int[] numbers, int target) {
+        int shortestLength = numbers.length + 1;
+        int bestStart = -1;
+        int bestEnd = -1;
+
+        for (int start = 0; start < numbers.length; start++) {
+            int sum = 0;
+
+            for (int end = start; end < numbers.length; end++) {
+                sum += numbers[end];
+
+                if (sum >= target) {
+                    int length = end - start + 1;
+
+                    if (length < shortestLength) {
+                        shortestLength = length;
+                        bestStart = start;
+                        bestEnd = end;
+                    }
+
+                    break;
+                }
+            }
+        }
+
+        if (bestStart == -1) {
+            return new int[]{0};
+        }
+
+        return new int[]{bestStart, bestEnd};
+    }
+
+    /**
+     * Finds the shortest contiguous subarray whose sum is at least
+     * the target, using a sliding window.
+     *
+     * Simplifications:
+     * - All array elements are positive integers.
+     * - The array is assumed to be non-null.
+     * - Start and end positions are zero-based indices.
+     *
+     * Time complexity: O(n).
+     * Auxiliary space complexity: O(1).
+     *
+     * Contraindications:
+     * - The sliding-window approach is not generally suitable for
+     *   arrays containing negative numbers.
+     *
+     * @param numbers the array of positive integers
+     * @param target the required minimum sum
+     * @return an array containing the start and end indices, or {0}
+     *         if no valid subarray exists
+     */
+    public static int[] shortestSubarrayTwoPointer(int[] numbers, int target) {
+        int left = 0;
+        int sum = 0;
+        int shortestLength = numbers.length + 1;
+        int bestStart = -1;
+        int bestEnd = -1;
+
+        for (int right = 0; right < numbers.length; right++) {
+            sum += numbers[right];
+
+            while (sum >= target && left <= right) {
+                int length = right - left + 1;
+
+                if (length < shortestLength) {
+                    shortestLength = length;
+                    bestStart = left;
+                    bestEnd = right;
+                }
+
+                sum -= numbers[left];
+                left++;
+            }
+        }
+
+        if (bestStart == -1) {
+            return new int[]{0};
+        }
+
+        return new int[]{bestStart, bestEnd};
+    }
+
 }

@@ -106,9 +106,8 @@ public class BruteForceTwoPointer {
      * - The input string is assumed to be non-null.
      * - Only letters and digits are compared.
      *
-     * Time complexity: O(n) time.
+     * Time complexity: O(n^2) in the worst case due to string concatenation.
      * Auxiliary space complexity: O(n) for the cleaned string.
-     *
      * Contraindications:
      * - Creates an extra string, which uses additional memory.
      *

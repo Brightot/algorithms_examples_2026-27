@@ -28,6 +28,19 @@ public class BruteForceTwoPointerTest {
 
         System.out.println(BruteForceTwoPointer.arraysEqualBruteForce(duplicates1, duplicates2));
         System.out.println(BruteForceTwoPointer.arraysEqualTwoPointer(duplicates1, duplicates2));
+
+
+        System.out.println(BruteForceTwoPointer.isPalindromeBruteForce("madam"));
+        System.out.println(BruteForceTwoPointer.isPalindromeBruteForce("RaceCar"));
+        System.out.println(BruteForceTwoPointer.isPalindromeBruteForce("A man, a plan, a canal: Panama!"));
+        System.out.println(BruteForceTwoPointer.isPalindromeBruteForce("hello"));
+
+
+        System.out.println(BruteForceTwoPointer.isPalindromeTwoPointer("madam"));
+        System.out.println(BruteForceTwoPointer.isPalindromeTwoPointer("RaceCar"));
+        System.out.println(BruteForceTwoPointer.isPalindromeTwoPointer("A man, a plan, a canal: Panama!"));
+        System.out.println(BruteForceTwoPointer.isPalindromeTwoPointer("hello"));
+
     }
 
 }

@@ -121,8 +121,8 @@ public class BruteForceTwoPointer {
         for (int i = 0; i < text.length(); i++) {
             char ch = text.charAt(i);
 
-            if (Character.isLetterOrDigit(ch)) {
-                cleaned = cleaned + Character.toLowerCase(ch);
+            if (isLetterOrDigit(ch)) {
+                cleaned = cleaned + toLowerCase(ch);
             }
         }
 
@@ -158,16 +158,16 @@ public class BruteForceTwoPointer {
         int right = text.length() - 1;
 
         while (left < right) {
-            while (left < right && !Character.isLetterOrDigit(text.charAt(left))) {
+            while (left < right && !isLetterOrDigit(text.charAt(left))) {
                 left++;
             }
 
-            while (left < right && !Character.isLetterOrDigit(text.charAt(right))) {
+            while (left < right && !isLetterOrDigit(text.charAt(right))) {
                 right--;
             }
 
-            if (Character.toLowerCase(text.charAt(left))
-                    != Character.toLowerCase(text.charAt(right))) {
+            if (toLowerCase(text.charAt(left))
+                    != toLowerCase(text.charAt(right))) {
                 return false;
             }
 
@@ -305,7 +305,7 @@ public class BruteForceTwoPointer {
         int count = 0;
 
         for (int i = 0; i < characters.length; i++) {
-            char ch = Character.toLowerCase(characters[i]);
+            char ch = toLowerCase(characters[i]);
 
             if (ch == 'a' || ch == 'e' || ch == 'i'
                     || ch == 'o' || ch == 'u') {
@@ -315,7 +315,7 @@ public class BruteForceTwoPointer {
         }
 
         for (int i = 0; i < characters.length; i++) {
-            char ch = Character.toLowerCase(characters[i]);
+            char ch = toLowerCase(characters[i]);
 
             if (ch == 'a' || ch == 'e' || ch == 'i'
                     || ch == 'o' || ch == 'u') {
@@ -371,11 +371,31 @@ public class BruteForceTwoPointer {
     }
 
     private static boolean isVowel(char ch) {
-        ch = Character.toLowerCase(ch);
+        ch = toLowerCase(ch);
 
         return ch == 'a' || ch == 'e' || ch == 'i'
                 || ch == 'o' || ch == 'u';
     }
 
+    /**
+     * Checks whether a character is an English letter or a digit
+     * without using a built-in character classification method.
+     */
+    private static boolean isLetterOrDigit(char ch) {
+        return (ch >= 'A' && ch <= 'Z')
+                || (ch >= 'a' && ch <= 'z')
+                || (ch >= '0' && ch <= '9');
+    }
+
+    /**
+     * Converts an English uppercase letter to lowercase manually.
+     * Other characters are returned unchanged.
+     */
+    private static char toLowerCase(char ch) {
+        if (ch >= 'A' && ch <= 'Z') {
+            return (char) (ch + ('a' - 'A'));
+        }
+        return ch;
+    }
 
 }
